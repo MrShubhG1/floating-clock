@@ -1,0 +1,14 @@
+workflows:
+  android-workflow:
+    name: Android Workflow
+
+    environment:
+      node: 18.0.0
+
+    scripts:
+      - npm install --legacy-peer-deps
+      - cd android
+      - ./gradlew assembleDebug
+
+    artifacts:
+      - android/app/build/outputs/**/*.apk
